@@ -13,7 +13,7 @@ Topics will be:
 
 1. What is an HTTP request? (what are we sending, and what we are recieving)
 2. Using regex for parsing
-3. What is the DOM?
+3. What is HTML?
 4. Installing tools (Ruby and Nokogiri)
 5. How I (and you) can use jQuery and Nokogiri for scraping
 
@@ -49,11 +49,10 @@ Holy moly Batman! What just happened?
 The regex inside text.scan looked through the output of curl and picked out the titles. Read more about regex (and TODO for me it to add useful links!), their useful but we need to move on.
 
 
-## What is the DOM?
-TODO put links about what the dom is.  
+## What is HTML?
+TODO put links about what HTML is.  
+TODO put a screenshot of chrome inspector and explain how it has a tree structure (that we can use to our advantage).  
 Visit [Hacker News](https://news.ycombinator.com/). See how nice and pretty it is? That's a combination of stylesheets and HTML. HTML is really just text, but the browser can interpret it's nice tree structure. (TODO put a link here) to learn more about it. We can use this to our advantage.  
-
-TODO put screenshot of chrome inspector, show DOM in workshop
 
 TODO put links about css selectors
 
