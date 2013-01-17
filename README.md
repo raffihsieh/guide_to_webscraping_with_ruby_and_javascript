@@ -19,16 +19,34 @@ Topics will be:
 
 
 ## What is an HTTP request?
-Short answer: a bunch of text
+The short answer: A request to a webserver that returns a bunch of text  
+The long answer: [MDN HTTP](https://developer.mozilla.org/en-US/docs/HTTP)
 
-Long answer: TODO put links here
-
-Paste this in your terminal: `curl https://news.ycombinator.com/`  
-TODO add explanation of what curl is doing -- tldr: it does a web request to `https://news.ycombinator.com/` and spits out the results of the request
+For our purposes all you need to know is that an HTTP request (which happens when you visit a website) gives you back the HTML of the page.  
+Curl is a tool to do http requests, paste this in your terminal: `curl http://news.ycombinator.com/`  
+You should get something [like this](TODO put link here) in your terminal. That's the HTML of the page and we can use regex to parse it.
 
 ## Using regex for parsing
-If this doesn't get done in time… sorry, you'll have to ask.  
-TODO add an example of using ruby to parse response with regex.
+What is regex?  
+The short answer: A way to match in a piece of text  
+The long answer: TODO find a link for this
+
+Now, assuming you have ruby installed (installation links are in a later section, feel free to install ruby and come back). Create a script called `regex_example.rb` with the following contents:  
+
+```
+#!/usr/bin/env ruby
+text = ARGF.read
+titles = text.scan(/<td class="title"><a href=.*?>(.*?)<\/a>/)
+puts titles.inspect
+```  
+
+Then run `curl http://news.ycombinator.com/ | ruby regex_example.rb`
+
+Holy moly Batman! What just happened?  
+(if you weren't able to run it, the output was something like [this](TODO put link))  
+
+The regex inside text.scan looked through the output of curl and picked out the titles. Read more about regex (and TODO for me it to add useful links!), their useful but we need to move on.
+
 
 ## What is the DOM?
 TODO put links about what the dom is.  
