@@ -53,7 +53,7 @@ HTML has a nice tree structure. If you're not familiar with HTML, start here: [M
 The main thing to note is that we can use CSS selectors to help us find the information we want.  
 If you're not familiar with CSS selectors see here: [MDN CSS Selectors](https://developer.mozilla.org/en-US/docs/CSS/Getting_Started/Selectors) and [30 CSS Selectors You Must Memorize](http://net.tutsplus.com/tutorials/html-css-techniques/the-30-css-selectors-you-must-memorize/)
 
-This is HTML as viewed in the chrome inspector. (TODO put link to image)
+This is HTML as viewed in the chrome inspector. ![chrome inspecor](https://raw.github.com/ibash/guide_to_webscraping_with_ruby_and_javascript/master/hacker_news_html.png)
 
 ## Installing tools
 Install these:
@@ -75,13 +75,13 @@ Watch out for Nokogiri, make sure you install the requirements listed on the ins
 Let's do this for Hacker News. Our goal is to parse out all the titles.  
 First we look at the DOM using the chrome web inspector. If you haven't used the web inspector before, skim here: [For an overview](https://developers.google.com/chrome-developer-tools/docs/overview) and [here for elements](https://developers.google.com/chrome-developer-tools/docs/elements)
 
-1. In the following screenshot, we can see that it looks like the titles are in a td element with class "title"  
-	TODO put image here.
+1. In the following screenshot, we can see that it looks like the titles are in a td element with class "title"  2. 
+	![title element of hacker news](https://raw.github.com/ibash/guide_to_webscraping_with_ruby_and_javascript/master/hacker_news_title_elem.png)
 
 2. Based upon what we saw in the web inspector, we can now play around with jquery to find out the css selector we want. By clicking the jquerify bookmarklet jquery will be loaded. (note: the bookmarklet won't work if you're on https://news.ycombinator.com -- you need to be at http://news.ycombinator.com)  
 jQuery allows you to easily test out css selectors and see what they return. The syntax for this is `$(<CSS Selector>)` and can be done in the javascript console, like in the screen shot below.  
 The blue text is what I entered and below it is the result of the query. By playing around with selectors you can eventually find a concise way to get the elements you want.
-	TODO put image here
+	![playing with css selectors](https://raw.github.com/ibash/guide_to_webscraping_with_ruby_and_javascript/master/hacker_news_css_selectors.png)
 
 3. Now that we have an idea of the css selector we want to use, something like `.title a` we can turn to Ruby to write a script to do parsing. I like to play around with it in the console first. If you installed pry open a terminal and run `pry`, otherwise open a terminal and run `irb`.
 
@@ -96,7 +96,6 @@ doc = Nokogiri::HTML(open("http://news.ycombinator.com/"))
 elems = doc.css('.title a')
 titles = elems.map { |e| e.text }
 ```
-
 oo wow!
 
 So what's going on?
